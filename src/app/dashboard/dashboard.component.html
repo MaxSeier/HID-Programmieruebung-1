@@ -1,0 +1,5 @@
+<app-data (pageChangedEvent)="pageChanged($event)" [currentPage]="currentPage"></app-data>
+<br>
+<br>
+<app-button [isFormHidden]="isFormHidden" (onButtonClick)="isFormHidden = !isFormHidden"></app-button>
+<app-add-data [currentPage]="currentPage" *ngIf = "!isFormHidden"></app-add-data>

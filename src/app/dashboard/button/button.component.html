@@ -1,0 +1,4 @@
+<button mat-raised-button (click) = "onButtonClick.emit()">
+<span *ngIf = "isFormHidden">Formular Öffnen</span>
+<span *ngIf = "!isFormHidden">Formular Schließen</span>
+</button>

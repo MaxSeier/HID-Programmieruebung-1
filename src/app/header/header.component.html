@@ -1,0 +1,12 @@
+<div>
+  <h1 class="title">{{ title }}</h1>
+  <button class="menu" mat-button [matMenuTriggerFor]="menu">Menu</button>
+</div>
+<div>
+  <img width="500" src={{imagePath}}>
+</div>&nbsp;&nbsp;
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/dashboard']">Dashboard</button>&nbsp;&nbsp;
+  <button mat-menu-item [routerLink]="['/about']">About</button>
+</mat-menu>
+

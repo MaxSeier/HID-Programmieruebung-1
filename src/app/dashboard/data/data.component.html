@@ -1,0 +1,56 @@
+<!--<table>
+    <tr>
+        <th>Name</th>
+        <th>Kindergarden</th>
+        <th>Adresse</th>
+        <th>Alter</th>
+        <th>Geburtsdatum</th>
+      </tr>
+    <tr *ngFor="let child of storeService.children">
+        <td>{{child.name}}</td>
+        <td>{{child.kindergarden.name}}</td>
+        <td>{{child.kindergarden.address}}</td>
+        <td>{{getAge(child.birthDate)}}</td>
+        <td>{{child.birthDate | date:'longDate'}}</td>
+        <td>
+            <button (click)="backendService.removeChild(child.id, currentPage)">Abmelden</button>
+        </td>
+    </tr>
+</table>-->
+
+<div class="container">
+    <div class="row border-red" style="color:red">
+        <div class="col">Name</div>
+        <div class="col">Kindergarten</div>
+        <div class="col">Adresse</div>
+        <div class="col-1">Alter</div>
+        <div class="col">Geburtsdatum</div>
+        <div class="col"></div>
+    </div>
+    <div class="row" *ngFor="let child of storeService.children">
+        <div class="col">{{child.name}}</div>
+        <div class="col">{{child.kindergarden.name}}</div>
+        <div class="col">{{child.kindergarden.address}}</div>
+        <div class="col-1">{{getAge(child.birthDate)}}</div>
+        <div class="col">{{child.birthDate | date:'longDate'}}</div>
+        <div class="col">
+            <button mat-raised-button (click)="backendService.removeChild(child.id, currentPage)">Abmelden</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="pagination">
+  <!-- pageSize should be connected to constants file or handled by method itself if it is changeable -->
+  <mat-paginator
+    [length] = returnAllPages()
+    [pageSize] = "2"
+    (page)="handlePageEvent($event)"
+  ></mat-paginator>
+</div>
+<div class="pagination">
+  <button mat-raised-button [class.active]="page == currentPage" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages() | pagination ">{{page}}</button>
+</div>
+<!--
+    <button *ngFor = "let page of returnAllPages() | pagination">{{ page }}</button>
+-->
+
