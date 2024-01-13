@@ -13,32 +13,42 @@
 </form>
 -->
 
-<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
+<form #form="ngForm" [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
   <h2>Ihr Kind anmelden!</h2>
   <div>
-    <mat-form-field>
-      <input class="form-input" matInput placeholder="Name" type="input" formControlName="name"><br />
+    <mat-form-field class="form-input">
+      <mat-label>Name des Kindes</mat-label>
+      <input matInput type="input" formControlName="name"><br/>
       <mat-error>Der Name ist ein Pflichtfeld!</mat-error>
     </mat-form-field>
   </div>
   <div>
-    <mat-form-field>
-      <input class="form-input" matInput placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br />
+    <mat-form-field class="form-input">
+      <mat-label>Geburtsdatum des Kindes</mat-label>
+      <input matInput type="date" formControlName="birthDate" ><br/>
+      <!-- [matDatepicker]="dp" disabled (dateChange)="changeDatePicker()"
+      <mat-datepicker-toggle matIconSuffix [for]="dp">
+        <mat-datepicker #dp disabled="false"></mat-datepicker>
+      </mat-datepicker-toggle>
+      -->
       <mat-error>Das Geburtsdatum ist ein Pflichtfeld!</mat-error>
     </mat-form-field>
   </div>
   <div>
-    <mat-form-field class="example-full-width">
-      <mat-select class="form-input" formControlName="kindergardenId">
+    <mat-form-field class="form-input">
+      <mat-label>Gewählter Kindergarten</mat-label>
+      <mat-select formControlName="kindergardenId">
         <mat-option value="" disabled>Bitte Kindergarten auswählen</mat-option>
-        <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+        <mat-option class="border-bottom border-black" *ngFor="let kindergarden of storeService.kindergardens"
+                    [value]="kindergarden.id">
           {{kindergarden.name}}, {{kindergarden.address}}
         </mat-option>
       </mat-select>
       <mat-error>Der Kindergarten ist ein Pflichtfeld!</mat-error>
     </mat-form-field>
   </div>
-  <button mat-raised-button type="submit">Erfassen</button>
+  <button class="me-2" mat-raised-button [disabled]="addChildForm.invalid" type="submit">Erfassen</button>
+  <button (click)="clearAction()" mat-raised-button type="button">Leeren</button>
 </form>
 
 

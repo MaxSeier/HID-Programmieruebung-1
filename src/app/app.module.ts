@@ -17,6 +17,13 @@ import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import { InfoPageComponent } from './info-page/info-page.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -29,6 +36,8 @@ import {MatMenuModule} from "@angular/material/menu";
     HeaderComponent,
     PaginationPipe,
     ButtonComponent,
+    InfoPageComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,11 @@ import {MatMenuModule} from "@angular/material/menu";
     MatPaginatorModule,
     MatButtonModule,
     MatMenuModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatTableModule,
+    MatSortModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

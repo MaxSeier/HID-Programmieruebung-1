@@ -8,11 +8,13 @@ import { Child, ChildResponse } from './interfaces/Child';
 export class StoreService {
 
   constructor() { }
-  
+
   // empty array children shall be filled with values from data file -> backend.service
   public children: ChildResponse[] = []
 
   public kindergardens: Kindergarden[] = []
 
   public childrenTotalCount = 0;
+  public isLoading = true;
+  public isChildrenLoading = false;
 }
